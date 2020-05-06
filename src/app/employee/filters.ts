@@ -1,5 +1,5 @@
-import { Employee } from '../employee-list/employees';
-import { FiltersValues } from './filter';
+import { Employee } from './interfaces/employee';
+import { FilterAction } from 'src/app/employee/interfaces/filters';
 
 function filterByName(employee: Employee , nameString: string): boolean {
   if (nameString === '') {
@@ -14,7 +14,7 @@ function filterByName(employee: Employee , nameString: string): boolean {
   return false;
 }
 
-function filterByFields(employee: Employee, filterFields: FiltersValues): boolean {
+function filterByFields(employee: Employee, filterFields: FilterAction): boolean {
   if (Object.keys(filterFields).length === 0) {
     return true;
   }

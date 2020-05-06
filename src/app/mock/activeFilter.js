@@ -1,5 +1,5 @@
 export const activeFilter = {
-  title: 'Employee status',
+  name: 'Employee status',
   code: 'isActive',
   values: [
     {

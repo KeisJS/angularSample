@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { activeFilter } from 'src/app/mock/activeFilter';
 import { departmentFilter } from 'src/app/mock/departmentFilter';
-import { FiltersServer } from './filters';
-import { Filter, FilterData, FiltersValues } from 'src/app/filters/filter';
-import { Employee } from '../../employee-list/employees';
+import { FiltersServer } from './filters.interface';
+import { FilterListValue, FilterList } from 'src/app/employee/interfaces/filters';
 
-function isFilterValue(f: any): f is Filter {
+function isFilterValue(f: any): f is FilterListValue {
   const props = Object.keys(f);
 
   return props.indexOf('name') !== -1 && props.indexOf('value') !== -1;
@@ -19,9 +18,9 @@ export class FiltersService {
 
   constructor() { }
 
-  private adaptSeverData(data: FiltersServer): FilterData {
+  private adaptSeverData(data: FiltersServer): FilterList {
     let resultValues = [];
-    const { code, title, values } = data;
+    const { code, name, values } = data;
 
     if (isFilterValue(values[0])) {
       resultValues = [...values];
@@ -34,10 +33,10 @@ export class FiltersService {
       }
     }
 
-    return { code, title, values: resultValues };
+    return { code, name, values: resultValues };
   }
 
-  getFilters(): Observable<FilterData> {
+  getFilters(): Observable<FilterList> {
     return of(this.adaptSeverData(activeFilter), this.adaptSeverData(departmentFilter));
   }
 }

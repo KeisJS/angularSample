@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./search-field.component.scss']
 })
 export class SearchFieldComponent implements OnInit {
-  @Output() valueAction = new EventEmitter();
+  @Output() valueAction = new EventEmitter<string>();
   value = '';
 
   constructor() { }

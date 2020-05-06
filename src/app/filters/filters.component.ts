@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FiltersService } from '../services/filters/filters.service';
-import { FilterData, FiltersValues, FilterActionPayload } from './filter';
+import { FilterListAction } from './filter.interface';
+import { FilterList, FilterAction } from 'src/app/employee/interfaces/filters';
 
 @Component({
   selector: 'app-filters',
@@ -8,9 +9,9 @@ import { FilterData, FiltersValues, FilterActionPayload } from './filter';
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit {
-  filters: FilterData[];
-  filtersValue: FiltersValues = {};
-  @Output() activeFilters = new EventEmitter();
+  filters: FilterList[];
+  filtersValue: FilterAction = {};
+  @Output() activeFilters = new EventEmitter<FilterAction>();
 
   constructor(private filtersService: FiltersService) { }
 
@@ -24,7 +25,7 @@ export class FiltersComponent implements OnInit {
       });
   }
 
-  onFilterAction({ code, value }: FilterActionPayload) {
+  onFilterAction({ code, value }: FilterListAction) {
     if (value !== '') {
       this.filtersValue[code] = value;
     } else {

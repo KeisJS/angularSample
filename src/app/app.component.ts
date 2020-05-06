@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from 'src/app/services/employees/employees.service';
-import { Employee } from './employee-list/employees';
-import { FiltersValues } from './filters/filter';
-import { filterByFields, filterByName } from './filters/filters';
+import { Employee } from './employee/interfaces/employee';
+import { filterByFields, filterByName } from './employee/filters';
+import { FilterAction } from './employee/interfaces/filters';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   title = 'angularSimple';
   employees: Employee[];
   filteredEmployees: Employee[];
-  filterFields: FiltersValues = {};
+  filterFields: FilterAction = {};
   filterName = '';
 
   constructor(private employeesService: EmployeesService) {}
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  onFilterFieldsChange(filtersValues: FiltersValues) {
+  onFilterFieldsChange(filtersValues: FilterAction) {
     this.filterFields = filtersValues;
     this.applyFilters();
   }

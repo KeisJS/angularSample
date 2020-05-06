@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FilterData, FilterActionPayload } from '../filters/filter';
+import { FilterList } from 'src/app/employee/interfaces/filters';
+import { FilterListAction } from '../filters/filter.interface';
 
 @Component({
   selector: 'app-filter',
@@ -7,8 +8,8 @@ import { FilterData, FilterActionPayload } from '../filters/filter';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-  @Input() filterData: FilterData;
-  @Output() filterAction = new EventEmitter<FilterActionPayload>();
+  @Input() filterData: FilterList;
+  @Output() filterAction = new EventEmitter<FilterListAction>();
 
   codeActiveFilter = '';
 
