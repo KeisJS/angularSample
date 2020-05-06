@@ -1,0 +1,2 @@
+# angularSample
+Simple angular application
