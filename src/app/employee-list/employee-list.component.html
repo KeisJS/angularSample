@@ -1,0 +1,27 @@
+<section>
+  <div *ngFor="let employee of employees" class="employee">
+    <div class="employee__photo">
+      <img src="{{ employee.picture }}" alt="">
+    </div>
+    <div class="employee__status employee__status_active" [class.employee__status_active]="employee.isActive">Active</div>
+    <div class="employee__status" [class.employee__status_non-active]="!employee.isActive">Not Active</div>
+    <div class="employee__info">
+      <div class="employee__name">
+        {{ employee.name.first }} {{ employee.name.last }}
+        <img src="assets/edit.svg" class="employee__edit-name" />
+      </div>
+      <div *ngFor="let param of parameterList" class="employee__info-row">
+        <div class="employee__label">{{ param.title }}</div>
+        <div class="employee__value">{{ employee[param.name] }}</div>
+      </div>
+      <div class="employee__info-row">
+        <div class="employee__label">Last Update</div>
+        <div class="employee__value">{{ employee.updatedAt | date : 'd/M/y, h:m' }}</div>
+      </div>
+    </div>
+    <div class="employee__edit-button">
+      Edit employee
+      <img src="assets/arrow.svg" />
+    </div>
+  </div>
+</section>

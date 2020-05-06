@@ -1,0 +1,40 @@
+.sort-control {
+  height: 32px;
+  line-height: 32px;
+  display: flex;
+}
+
+.sort-control__label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #808080;
+  margin-right: 1em;
+}
+
+.sort-control__control-1,
+.sort-control__control-2 {
+  position: relative;
+  background: #E1E5E6;
+  box-shadow: 0px 2px 4px rgba(55, 88, 123, 0.16), 0px 2px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #717373;
+  line-height: 32px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.sort-control__control-2 {
+  left: -1rem;
+}
+
+.active {
+  z-index: 1;
+  color: black;
+  background: white;
+  padding: 0 15px;
+}

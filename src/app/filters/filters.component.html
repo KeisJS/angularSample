@@ -1,0 +1,6 @@
+<aside class="filters">
+  <div class="filters__name">
+    Filter
+  </div>
+  <app-filter *ngFor="let filter of filters" [filterData]="filter" (filterAction)="onFilterAction($event)"></app-filter>
+</aside>

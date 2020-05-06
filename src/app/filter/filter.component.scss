@@ -1,0 +1,29 @@
+.filter {
+  margin-top: 14px;
+}
+
+.filter__title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  margin-bottom: 14px;
+  color: #98989D;
+}
+
+.filter__name {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: #7A7B7B;
+  padding-left: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-bottom: 7px;
+}
+
+.filter__name_active {
+  border-left: 1px solid black;
+  color: black;
+}

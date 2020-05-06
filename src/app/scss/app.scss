@@ -1,0 +1,6 @@
+.app {
+  @include font-ubuntu;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

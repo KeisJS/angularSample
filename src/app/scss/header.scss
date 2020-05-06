@@ -1,0 +1,15 @@
+.header {
+  background: #F4F5F6;
+  padding: 7px 18px 10px;
+  border-bottom: 1px solid $common-border-grey;
+  flex-grow: 0;
+}
+
+.header__logo {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 41px;
+  letter-spacing: 0.144444px;
+  color: #2D3080;
+}

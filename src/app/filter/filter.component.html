@@ -1,0 +1,12 @@
+<div class="filter">
+  <div class="filter__title">
+    {{ filterData.title }}
+  </div>
+  <div class="filter__name filter__name_active" [class.filter__name_active]="codeActiveFilter === ''" (click)="click('')">
+    Any
+  </div>
+  <div class="filter__name" *ngFor="let filter of filterData.values" (click)="click(filter.value)"
+       [class.filter__name_active]="codeActiveFilter === filter.value">
+    {{ filter.name }}
+  </div>
+</div>

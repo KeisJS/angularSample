@@ -1,0 +1,7 @@
+<div class="sort-control">
+  <div class="sort-control__label">
+    Show
+  </div>
+  <div class="sort-control__control-1" (click)="click(sortValues.DESC)" [class.active]="sortBy === sortValues.DESC">Latest first</div>
+  <div class="sort-control__control-2 " (click)="click(sortValues.ASC)" [class.active]="sortBy === sortValues.ASC">Old first</div>
+</div>

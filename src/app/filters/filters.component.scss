@@ -1,0 +1,19 @@
+@import "../scss/variables";
+
+.filters {
+  width: 240px;
+  box-sizing: border-box;
+  padding: 20px 20px 30px 20px;
+  border: 1px solid $common-border-grey;
+  border-radius: 4px;
+  background: #F4F5F6;
+}
+
+.filters__name {
+  @include font-roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: black;
+}

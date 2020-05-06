@@ -1,0 +1,59 @@
+.topBar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.topBar-right,
+.topBar-left {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.topBar-left {
+  > * {
+    margin-left: 10px;
+
+    &:first-child {
+      margin-left: 0px;
+    }
+  }
+}
+
+.topBar-right {
+  flex-direction: row-reverse;
+
+  &:first-child {
+    margin-left: 0px;
+  }
+
+  > * {
+    margin-left: 10px;
+
+    &:last-child {
+      margin-left: 0px;
+    }
+  }
+}
+
+.topBar__title {
+  @include font-roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.topBar__employees-count {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  color: white;
+  line-height: 20px;
+  padding: 0px 6px;
+  height: 20px;
+  box-sizing: border-box;
+  background: #7F8487;
+  border-radius: 14px;
+}

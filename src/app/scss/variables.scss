@@ -1,0 +1,9 @@
+$common-border-grey: #D6DADB;
+
+@mixin font-ubuntu {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+@mixin font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
