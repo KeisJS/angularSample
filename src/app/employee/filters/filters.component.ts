@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FiltersService } from '../services/filters/filters.service';
+import { FiltersService } from '../../services/filters/filters.service';
 import { FilterListAction } from './filter.interface';
 import { FilterList, FilterAction } from 'src/app/employee/interfaces/filters';
 

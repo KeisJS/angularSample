@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { activeFilter } from 'src/app/mock/activeFilter';
-import { departmentFilter } from 'src/app/mock/departmentFilter';
+import { activeFilter } from 'src/app/employee/mock/activeFilter';
+import { departmentFilter } from 'src/app/employee/mock/departmentFilter';
 import { FiltersServer } from './filters.interface';
 import { FilterListValue, FilterList } from 'src/app/employee/interfaces/filters';
 
