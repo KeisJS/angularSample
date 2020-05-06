@@ -10,7 +10,7 @@ import { filterByFields, filterByName } from './filters/filters';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'draewilSample';
+  title = 'angularSimple';
   employees: Employee[];
   filteredEmployees: Employee[];
   filterFields: FiltersValues = {};
