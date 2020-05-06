@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   employees: Employee[];
   filteredEmployees: Employee[];
   filterFields: FiltersValues = {};
-  filterName: '';
+  filterName = '';
 
   constructor(private employeesService: EmployeesService) {}
 
@@ -42,8 +42,6 @@ export class AppComponent implements OnInit {
 
   onFilterFieldsChange(filtersValues: FiltersValues) {
     this.filterFields = filtersValues;
-    console.log({ filtersValues })
-
     this.applyFilters();
   }
 
