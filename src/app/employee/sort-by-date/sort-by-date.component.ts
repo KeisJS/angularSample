@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { SORT_VALUES } from './sort';
+import { SORT_VALUES } from '../interfaces/sort.interface';
 
 @Component({
   selector: 'app-sort-by-date',

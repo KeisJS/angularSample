@@ -19,7 +19,7 @@
           <app-sort-by-date (sortAction)="onSort($event)"></app-sort-by-date>
         </div>
       </aside>
-      <app-employee-list [employees]="filteredEmployees"></app-employee-list>
+      <app-employee-list [employees]="filteredEmployees" (updateEmployee)="onEmployeeChange($event)"></app-employee-list>
     </div>
   </main>
 </div>

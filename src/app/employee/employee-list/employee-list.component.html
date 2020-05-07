@@ -7,8 +7,10 @@
     <div class="employee__status" [class.employee__status_non-active]="!employee.isActive">Not Active</div>
     <div class="employee__info">
       <div class="employee__name">
-        {{ employee.name.first }} {{ employee.name.last }}
-        <img src="assets/edit.svg" class="employee__edit-name" />
+        <span [contentEditable]="editEmployeeId === employee._id" (keydown.enter)="disableEnter($event)" (blur)="onUpdateEmployee($event, employee)">
+          {{ employee.name.first }} {{ employee.name.last }}
+        </span>
+        <img src="assets/edit.svg" class="employee__edit-name" (click)="activateEditName(employee)" />
       </div>
       <div *ngFor="let param of parameterList" class="employee__info-row">
         <div class="employee__label">{{ param.title }}</div>
@@ -16,7 +18,7 @@
       </div>
       <div class="employee__info-row">
         <div class="employee__label">Last Update</div>
-        <div class="employee__value">{{ employee.updatedAt | date : 'd/M/y, h:m' }}</div>
+        <div class="employee__value">{{ employee.updatedAt | date : 'd/M/y, H:m' }}</div>
       </div>
     </div>
     <div class="employee__edit-button">

@@ -3,6 +3,7 @@ import { EmployeesService } from 'src/app/services/employees/employees.service';
 import { Employee } from './employee/interfaces/employee';
 import { filterByFields, filterByName } from './employee/filters';
 import { FilterAction } from './employee/interfaces/filters';
+import { SORT_VALUES } from './employee/interfaces/sort.interface';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
   filteredEmployees: Employee[];
   filterFields: FilterAction = {};
   filterName = '';
+  sort = SORT_VALUES.DESC;
 
   constructor(private employeesService: EmployeesService) {}
 
@@ -46,6 +48,7 @@ export class AppComponent implements OnInit {
   }
 
   onSort(sortBy) {
+    this.sort = sortBy;
     this.employees = [...this.employees];
     this.filteredEmployees = [...this.filteredEmployees];
     this.employees.reverse();
@@ -56,5 +59,24 @@ export class AppComponent implements OnInit {
     this.filterName = filterName;
 
     this.applyFilters();
+  }
+
+  onEmployeeChange(employee: Employee) {
+    this.employeesService.updateEmployee(employee).subscribe(updatedEmployee => {
+      this.employees = this.updateEmployees(updatedEmployee);
+
+      this.applyFilters();
+    });
+  }
+
+  updateEmployees(updatedEmployee: Employee) {
+    const updatedIndex = this.employees.findIndex(employee => employee._id === updatedEmployee._id);
+    this.employees.splice(updatedIndex, 1);
+
+    if (this.sort === SORT_VALUES.ASC) {
+      return [...this.employees, updatedEmployee];
+    } else {
+      return [updatedEmployee, ...this.employees];
+    }
   }
 }

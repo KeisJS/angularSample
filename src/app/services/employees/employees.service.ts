@@ -13,4 +13,10 @@ export class EmployeesService {
   getEmployees(): Observable<Array<Employee>> {
     return of(employees.employees);
   }
+
+  updateEmployee(employee): Observable<Employee> {
+    const updatedEmployee = { ...employee, updatedAt: (new Date()).toUTCString() };
+
+    return of(updatedEmployee);
+  }
 }
