@@ -1,3 +1,5 @@
+@import "./scss/topBar";
+
 .main {
   display: flex;
   flex-grow: 1;
@@ -13,4 +15,3 @@
 .column-2 {
   width: 1136px;
 }
-

@@ -1,0 +1,20 @@
+<main class="main">
+  <div class="column-1">
+    <app-filters (activeFilters)="onFilterFieldsChange($event)"></app-filters>
+  </div>
+  <div class="column-2">
+    <aside class="topBar">
+      <div class="topBar-left">
+        <div class="topBar__title">
+          Employees
+        </div>
+        <div class="topBar__employees-count">{{ filteredEmployees.length }}</div>
+      </div>
+      <div class="topBar-right">
+        <app-search-field (valueAction)="onFilterNameChange($event)"></app-search-field>
+        <app-sort-by-date (sortAction)="onSort($event)"></app-sort-by-date>
+      </div>
+    </aside>
+    <app-employee-list [employees]="filteredEmployees" (updateEmployee)="onEmployeeChange($event)"></app-employee-list>
+  </div>
+</main>

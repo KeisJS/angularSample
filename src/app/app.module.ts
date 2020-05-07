@@ -9,6 +9,7 @@ import { FiltersComponent } from './employee/filters/filters.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { SortByDateComponent } from './employee/sort-by-date/sort-by-date.component';
 import { SearchFieldComponent } from './employee/search-field/search-field.component';
+import { EmployeesComponent } from './employee/employees/employees.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchFieldComponent } from './employee/search-field/search-field.compo
     FiltersComponent,
     EmployeeListComponent,
     SortByDateComponent,
-    SearchFieldComponent
+    SearchFieldComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
