@@ -17,8 +17,6 @@ export class EmployeesService {
   }
 
   updateEmployee(employee): Observable<Employee> {
-    const updatedEmployee = { ...employee, updatedAt: (new Date()).toUTCString() };
-
-    return of(updatedEmployee);
+    return this.http.post<Employee>('/employee', employee);
   }
 }

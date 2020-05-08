@@ -8,9 +8,6 @@ const middlewares = jsonServer.defaults();
 server.use(middlewares);
 
 // Add custom routes before JSON Server router
-server.get('/echo', (req, res) => {
-  res.jsonp(req.query)
-});
 server.get('/employee/list', (req, res) => {
   res.jsonp(config.employee.list);
 });
@@ -23,10 +20,17 @@ server.get('/employee/filters', (req, res) => {
 server.use(jsonServer.bodyParser);
 server.use((req, res, next) => {
   if (req.method === 'POST') {
-    req.body.createdAt = Date.now()
+    switch(req.url) {
+      case '/employee':
+        req.body.updatedAt = (new Date()).toUTCString();
+        res.jsonp(req.body);
+        break;
+      default:
+        next();
+    }
+  } else {
+    next()
   }
-  // Continue to JSON Server router
-  next()
 });
 
 // Use default router
