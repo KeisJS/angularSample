@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FiltersServer } from './filters.interface';
-import { FilterListValue, FilterList } from 'src/app/employee/interfaces/filters';
+import { FilterListValue, FilterList } from 'src/app/employee/interfaces/filters.interface';
 import { HttpClient } from '@angular/common/http';
 
 function isFilterValue(f: any): f is FilterListValue {

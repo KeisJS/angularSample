@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../interfaces/employee';
-import { FilterAction } from '../interfaces/filters';
+import { Employee } from '../interfaces/employee.interface';
+import { FilterAction } from '../interfaces/filters.interface';
 import { SORT_VALUES } from '../interfaces/sort.interface';
 import { EmployeesService } from '../../services/employees/employees.service';
 import { filterByFields, filterByName } from '../filters';

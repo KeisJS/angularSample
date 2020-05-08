@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Employee } from '../../employee/interfaces/employee';
+import { Employee } from '../../employee/interfaces/employee.interface';
 import { HttpClient } from '@angular/common/http';
 import { EmployeesSever } from './employees.interface';
 

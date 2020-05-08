@@ -1,5 +1,5 @@
-import { Employee } from './interfaces/employee';
-import { FilterAction } from 'src/app/employee/interfaces/filters';
+import { Employee } from './interfaces/employee.interface';
+import { FilterAction } from 'src/app/employee/interfaces/filters.interface';
 
 function filterByName(employee: Employee , nameString: string): boolean {
   if (nameString === '') {
