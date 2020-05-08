@@ -1,7 +1,7 @@
-export const activeFilter = {
-  name: 'Employee status',
-  code: 'isActive',
-  values: [
+{
+  "name": "Employee status",
+  "code": "isActive",
+  "values": [
     {
       "name": "Active",
       "value": true
@@ -11,5 +11,5 @@ export const activeFilter = {
       "value": false
     }
   ]
-};
+}
 

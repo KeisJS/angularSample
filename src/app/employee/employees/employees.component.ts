@@ -11,8 +11,8 @@ import { filterByFields, filterByName } from '../filters';
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
-  employees: Employee[];
-  filteredEmployees: Employee[];
+  employees: Employee[] = [];
+  filteredEmployees: Employee[] = [];
   filterFields: FilterAction = {};
   filterName = '';
   sort = SORT_VALUES.DESC;
@@ -27,8 +27,9 @@ export class EmployeesComponent implements OnInit {
 
         return dateTwo.valueOf() - dateOne.valueOf();
       });
+
+      this.filteredEmployees = this.employees;
     });
-    this.filteredEmployees = this.employees;
   }
 
 

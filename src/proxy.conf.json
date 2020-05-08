@@ -1,0 +1,11 @@
+[
+  {
+    "context": [
+      "/employee/list",
+      "/employee/filters",
+      "/employee/update"
+    ],
+    "target": "http://localhost:3000",
+    "secure": false
+  }
+]

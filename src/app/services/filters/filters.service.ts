@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { activeFilter } from 'src/app/employee/mock/activeFilter';
-import { departmentFilter } from 'src/app/employee/mock/departmentFilter';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { FiltersServer } from './filters.interface';
 import { FilterListValue, FilterList } from 'src/app/employee/interfaces/filters';
+import { HttpClient } from '@angular/common/http';
 
 function isFilterValue(f: any): f is FilterListValue {
   const props = Object.keys(f);
@@ -16,7 +16,7 @@ function isFilterValue(f: any): f is FilterListValue {
 })
 export class FiltersService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   private adaptSeverData(data: FiltersServer): FilterList {
     let resultValues = [];
@@ -36,7 +36,8 @@ export class FiltersService {
     return { code, name, values: resultValues };
   }
 
-  getFilters(): Observable<FilterList> {
-    return of(this.adaptSeverData(activeFilter), this.adaptSeverData(departmentFilter));
+  getFilters(): Observable<FilterList[]> {
+    return map((filterLists: FiltersServer[]) => filterLists.map(filterList => this.adaptSeverData(filterList)))
+    (this.http.get<FilterList[]>('/employee/filters'));
   }
 }

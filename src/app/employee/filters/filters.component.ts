@@ -9,20 +9,15 @@ import { FilterList, FilterAction } from 'src/app/employee/interfaces/filters';
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent implements OnInit {
-  filters: FilterList[];
+  filters: FilterList[] = [];
   filtersValue: FilterAction = {};
   @Output() activeFilters = new EventEmitter<FilterAction>();
 
   constructor(private filtersService: FiltersService) { }
 
   getFilters() {
-    const filters = [];
-
     this.filtersService.getFilters()
-      .subscribe({
-        next: filterData => filters.push(filterData),
-        complete: () => this.filters = filters
-      });
+      .subscribe(filterLists => this.filters = filterLists);
   }
 
   onFilterAction({ code, value }: FilterListAction) {

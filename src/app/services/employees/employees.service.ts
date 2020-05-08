@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { employees } from 'src/app/employee/mock/employees';
+import { Observable, of, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Employee } from '../../employee/interfaces/employee';
+import { HttpClient } from '@angular/common/http';
+import { EmployeesSever } from './employees.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeesService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<Array<Employee>> {
-    return of(employees.employees);
+    return map((employees: EmployeesSever) => employees.employees)(this.http.get<EmployeesSever>('/employee/list'));
   }
 
   updateEmployee(employee): Observable<Employee> {

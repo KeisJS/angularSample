@@ -10,6 +10,7 @@ import { EmployeeListComponent } from './employee/employee-list/employee-list.co
 import { SortByDateComponent } from './employee/sort-by-date/sort-by-date.component';
 import { SearchFieldComponent } from './employee/search-field/search-field.component';
 import { EmployeesComponent } from './employee/employees/employees.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { EmployeesComponent } from './employee/employees/employees.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
