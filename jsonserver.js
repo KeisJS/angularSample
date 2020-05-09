@@ -18,19 +18,10 @@ server.get('/employee/filters', (req, res) => {
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser);
-server.use((req, res, next) => {
-  if (req.method === 'POST') {
-    switch(req.url) {
-      case '/employee':
-        req.body.updatedAt = (new Date()).toUTCString();
-        res.jsonp(req.body);
-        break;
-      default:
-        next();
-    }
-  } else {
-    next()
-  }
+
+server.post('/employee', (req, res) => {
+  req.body.updatedAt = (new Date()).toUTCString();
+  res.jsonp(req.body);
 });
 
 // Use default router
