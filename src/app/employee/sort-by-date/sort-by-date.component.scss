@@ -2,6 +2,10 @@
   height: 32px;
   line-height: 32px;
   display: flex;
+
+  * {
+    transition: all 500ms;
+  }
 }
 
 .sort-control__label {
